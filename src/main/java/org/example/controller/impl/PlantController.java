@@ -10,11 +10,11 @@ import java.util.List;
 
 public class PlantController implements IPlantController
 {
-    public static List<PlantDTO> plantDTOList = new ArrayList<>();
+    public List<PlantDTO> plantDTOList = new ArrayList<>();
 
     public PlantController()
     {
-        plantDTOList = Populate.populatePlants();
+        this.plantDTOList = Populate.populatePlants();
     }
     @Override
     public void getPlantById(Context ctx)
@@ -44,13 +44,14 @@ public class PlantController implements IPlantController
     public void createPlant(Context ctx)
     {
         PlantDTO plantDTO = ctx.bodyAsClass(PlantDTO.class);
+        plantDTO.setId(PlantDTO.counter++);
         if(plantDTO == null)
         {
             ctx.res().setStatus(400);
             ctx.result("Plant not found");
             return;
         }
-        plantDTOList.add(plantDTO);
+        this.plantDTOList.add(plantDTO);
         ctx.res().setStatus(201);
         ctx.result("Plant created");
     }

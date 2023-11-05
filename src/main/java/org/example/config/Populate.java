@@ -6,6 +6,7 @@ import org.example.dto.PlantDTO;
 import org.example.dto.ResellerDTO;
 import org.example.exception.ApiException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Populate
@@ -15,16 +16,8 @@ public class Populate
     {
     }
 
-    public static List<PlantDTO> populatePlants()
+    public static ArrayList<PlantDTO> populatePlants()
     {
-        /*
-        id planttype name maxheight price
-1 Rose Albertine 400 199.50
-2 Bush Aronia 200 169.50
-3 FruitAndBerries AromaApple 350 399.50
-4 Rhododendron Astrid 40 269.50
-5 Rose The DarkLady 100 199.50
-         */
         PlantDTO Albertine = new PlantDTO("Rose", "Albertine", 400, 199.50);
         PlantDTO Aronia = new PlantDTO("Bush", "Aronia", 200, 169.50);
         PlantDTO AromaApple = new PlantDTO("FruitAndBerries", "AromaApple", 350, 399.50);
@@ -32,12 +25,12 @@ public class Populate
         PlantDTO TheDarkLady = new PlantDTO("Rose", "The DarkLady", 100, 199.50);
 
 
-        List<PlantDTO> plantDTOList = List.of(Albertine, Aronia, AromaApple, Astrid, TheDarkLady);
-        int counter = 1;
-        for(PlantDTO p : plantDTOList)
-        {
-            p.setId(counter++);
-        }
+        ArrayList<PlantDTO> plantDTOList = new ArrayList<>();
+        plantDTOList.add(Albertine);
+        plantDTOList.add(Aronia);
+        plantDTOList.add(AromaApple);
+        plantDTOList.add(Astrid);
+        plantDTOList.add(TheDarkLady);
         return plantDTOList;
     }
 

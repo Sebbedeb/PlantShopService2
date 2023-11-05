@@ -1,8 +1,15 @@
-GET http://localhost:7071/api/v1/plants/
+POST http://localhost:7071/api/v1/plants/
+
+{
+  "plantType": "Bush",
+  "name": "TestBush",
+  "maxHeight": 200,
+  "price": 169.5
+}
 
 ###
 
-GET http://localhost:7071/api/v1/plants/2
+GET http://localhost:7071/api/v1/plants/
 
 ###
 

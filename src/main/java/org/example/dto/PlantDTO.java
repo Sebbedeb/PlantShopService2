@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.model.Plant;
 
 @Setter
 @Getter
@@ -24,5 +25,14 @@ public class PlantDTO
         this.name = name;
         this.maxHeight = maxHeight;
         this.price = price;
+    }
+
+    public PlantDTO(Plant plant)
+    {
+        this.id = plant.getId();
+        this.plantType = plant.getPlantType().toString();
+        this.name = plant.getName();
+        this.maxHeight = plant.getMaxHeight();
+        this.price = plant.getPrice();
     }
 }
